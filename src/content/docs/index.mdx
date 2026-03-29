@@ -1,0 +1,35 @@
+---
+title: Tungsten
+description: Another command line tool to manage Roblox assets similar to Tarmac and Asphalt.
+template: splash
+hero:
+  title: tungsten
+  tagline: Another command line tool to manage Roblox assets similar to Tarmac and Asphalt.
+  image:
+    file: ../../assets/tungsten_logo.png
+  actions:
+    - text: Get Started
+      link: /getting-started/installation
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/pwnwrkz/tungsten
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid stagger>
+  <Card title="Installation" icon="download">
+    Get Tungsten installed on your system quickly. [Install Tungsten →](/getting-started/installation/)
+  </Card>
+  <Card title="Getting Started" icon="rocket">
+    Learn how to set up Tungsten in your project for the first time. [Get started →](/getting-started/)
+  </Card>
+  <Card title="CLI Reference" icon="terminal">
+    Browse all available commands and flags. [View reference →](/cli-reference/)
+  </Card>
+  <Card title="Configuration" icon="setting">
+    Learn how to configure Tungsten via `tungsten.toml`. [Configure →](/configuration/)
+  </Card>
+</CardGrid>

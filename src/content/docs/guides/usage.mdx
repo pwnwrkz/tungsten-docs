@@ -1,0 +1,92 @@
+---
+title: Usage
+description: Learn how to work with Tungsten day-to-day.
+---
+
+import { FileTree } from '@astrojs/starlight/components';
+import { Aside, Steps } from "@astrojs/starlight/components";
+
+This guide covers recommended workflows and patterns for using Tungsten effectively in a Roblox project.
+
+## Recommended folder structure
+
+There's no strict requirement on how you organize your assets, but here's a structure that works well with Tungsten:
+
+<FileTree>
+- assets/
+  - packed/
+  - individual/
+- shared/
+  - Assets/
+    - Packed.luau
+    - Individual.luau
+- tungsten.toml
+</FileTree>
+
+Keep your raw assets separate from your Roblox project source so Tungsten's generated Luau files are the only thing your project actually touches.
+
+## Separating packed and individual assets
+
+If your project uses both spritesheets and individually uploaded assets, define separate input blocks for each in your `tungsten.toml`:
+```toml title="tungsten.toml"
+[inputs.packed_assets]
+path = "assets/packed/**/*.png"
+output_path = "shared/Assets/Packed.luau"
+packable = true
+
+[inputs.individual_assets]
+path = "assets/individual/**/*.png"
+output_path = "shared/Assets/Individual.luau"
+packable = false
+```
+
+This keeps your generated Luau files clean and makes it easy to require only what you need in your Roblox project.
+
+## Recommended workflow
+
+A typical Tungsten session looks like this:
+
+<Steps>
+
+1. #### Make changes to your assets
+   Add, remove, or update images in your assets folder.
+
+2. #### Verify your config
+   Run `tungsten test` to catch any issues before uploading:
+   ```bash title="Terminal"
+   tungsten help
+   ```
+3. #### Do a dry run
+   Use `--target none` to see what would be synced without actually uploading:
+   ```bash title="Terminal"
+   tungsten sync --target none
+   ```
+4. #### Sync for real
+   Once you're happy, run the actual sync:
+   ```bash title="Terminal
+   tungsten sync --target roblox --api-key <key>
+   ```
+
+</Steps>
+
+:::caution[API key]
+Currently, `--api-key` is required every time you run `tungsten sync`. Environment variable support is planned for a future release.
+:::
+
+## Choosing a codegen style
+
+Pick your codegen style based on how your assets are organized. If your assets live in subfolders that map to meaningful categories (like icon sizes), `nested` is the better choice since it reflects that structure directly in Luau:
+```luau
+-- nested: clean to access by category
+local icon = Assets["48"]["arrow-up"]
+
+-- flat: full path as the key
+local icon = Assets["48/arrow-up"]
+```
+
+If your assets are all flat with no subfolders, `flat` and `nested` will produce the same result, so it doesn't matter which you pick.
+
+## Next steps
+
+- See every available config field in the [Configuration](/reference/configuration/) reference.
+- See all commands and flags in the [CLI Reference](/reference/cli-reference/).
