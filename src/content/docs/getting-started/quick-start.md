@@ -66,5 +66,5 @@ You can then require this file anywhere in your Roblox project to reference your
 
 ## Next steps
 
-- Learn more about configuring Tungsten in the [Usage](/usage/) guide.
-- See all available commands in the [CLI Reference](/cli-reference/).
+- Learn more about configuring Tungsten in the [Usage](/tungsten-docs/guides/usage/) guide.
+- See all available commands in the [CLI Reference](/tungsten-docs/reference/cli-reference/).
