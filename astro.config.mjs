@@ -23,9 +23,10 @@ export default defineConfig({
           href: "https://github.com/pwnwrkz/tungsten",
         },
       ],
+      // sidebar config snippet
       sidebar: [
         {
-          label: "Getting Started",
+          label: "Foundations",
           items: [
             { label: "Introduction", slug: "getting-started/introduction" },
             { label: "Installation", slug: "getting-started/installation" },
@@ -33,14 +34,21 @@ export default defineConfig({
           ],
         },
         {
-          label: "Guides",
-          items: [{ label: "Usage", slug: "guides/usage" }],
+          label: "Concepts",
+          items: [
+            { label: "Syncing Workflow", slug: "guides/usage" },
+            { label: "Asset Processing", slug: "guides/processing" }, // New logical split
+          ],
         },
         {
           label: "Reference",
           items: [
+            {
+              label: "Configuration",
+              slug: "reference/configuration",
+            },
+            { label: "Meta Files", slug: "reference/meta-files" },
             { label: "CLI Reference", slug: "reference/cli-reference" },
-            { label: "Configuration", slug: "reference/configuration" },
           ],
         },
       ],

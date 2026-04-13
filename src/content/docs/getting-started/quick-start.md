@@ -29,9 +29,9 @@ If you're uploading assets under a group, set `type` to `"group"` and use your g
 
 Add an `[inputs]` block pointing at your assets. You can name it anything — Tungsten uses the name as an identifier:
 ```toml title="tungsten.toml"
-[inputs.my_assets]
+[inputs.assets]
 path = "assets/**/*.png"
-output_path = "shared/Assets.luau"
+output_path = "src/Assets.luau"
 packable = false
 ```
 
@@ -54,8 +54,8 @@ tungsten sync
 Tungsten will upload your assets to Roblox and generate a Luau file at the `output_path` you specified. It'll look something like this:
 ```luau title="Assets.luau"
 local Assets = {
-    ["arrow-up"] = {
-        Image = "rbxassetid://18303920"
+    ["test"] = {
+        Image = "rbxassetid://12345678"
     }
 }
 

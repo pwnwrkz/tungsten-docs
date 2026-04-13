@@ -1,61 +1,63 @@
 ---
 title: Introduction
-description: Introduction to using Tungsten.
+description: An overview of Tungsten and how it fits into your Roblox development workflow.
 ---
 
-Welcome to the Tungsten documentation site! In this topic we'll discuss on what is Tungsten, it's features, and whether you should use it compared to other tools.
+Welcome to the Tungsten documentation! This guide covers what Tungsten is, the features it offers, and how it compares to other  tools.
 
-# What is Tungsten?
+## What is Tungsten?
 
-Tungsten handles uploading and packing assets for Roblox projects. It was built during the making of [LucideRoblox](https://github.com/notmagniill/LucideRoblox), when I was frustrated with the existing tools. Tarmac is completely unusable, and Asphalt (while great) doesn't support spritesheet packing.
+Tungsten is another command line tool to manage Roblox assets similar to Tarmac and Asphalt.
 
-Tungsten combines the best of both:
+It was made out of frustration during the development of [LucideRoblox](https://github.com/notmagniill/LucideRoblox). While existing tools were functional, they were incomplete: **Tarmac** has become unusable due to aging APIs, and **Asphalt**, while excellent for syncing, lacks the essential ability to pack assets into spritesheets.
 
-- Spritesheet packing from Tarmac
-- Modern Open Cloud API from Asphalt
-- Helpful error messages from neither
+Tungsten bridges this gap by combining the best of both worlds:
 
-> Not sure about Asphalt but Tarmac sucks at error messages
+- **The Utility of Tarmac:** Automatic spritesheet packing to optimize UI performance.
+- **The Modernity of Asphalt:** Full integration with Roblox's Open Cloud API.
+- **Developer Experience:** Meaningful error messages and a focus on ease of use.
 
-Tungsten aims to become a more modern alternative of Tarmac and Asphalt, while maintaining its ease of use.
-
-# Features
+## Features
 
 ### Available
 
-- Syncing images directly to Roblox (packing spritesheets supported)
-- Generates Luau code for you to reference your assets in your projects
-- Target between Roblox users and groups
+- **Multi-Asset Syncing:** Push images, audio, models, and animations directly to Roblox.
+- **Automatic Packing:** Combine images into optimized spritesheets on the fly.
+- **Asset Conversion:** Native support for various file formats, including SVG-to-PNG conversion.
+- **Metadata Support:** Define custom names and descriptions via `.tmeta` files.
+- **Luau Codegen:** Automatically generate type-safe Luau code to reference your assets.
+- **Flexible Targets:** Seamlessly switch between User and Group-owned assets.
 
 ### Planned
 
-- [ ] Support for more asset types like audio, animations, models and more.
-- [ ] Ability to process SVGs to PNGs similar to Asphalt
-- [ ] Defining assets you already uploaded
-- [ ] High DPI detection similar to Tarmac
+- **TypeScript Support:** Native codegen for `roblox-ts` workflows.
+- **Watch Mode:** Automatic syncing as soon as files change (similar to `rojo serve`).
+- **External Asset Mapping:** Link to existing assets already on Roblox.
+- **High DPI Detection:** Automated scaling for high-resolution displays.
+- **Smarter Initialization:** Auto-detects project folders to instantly generate your configuration.
+- **Studio Syncing:** Preview assets in Roblox Studio before publishing to the Creator Marketplace.
 
 :::tip
-Have an idea? Feel free to submit one with the `enhancements` tag in the Issues tab of the repository!
+Have a feature request? We’d love to hear it! Open an issue with the `enhancement` tag on the GitHub repository.
 :::
 
-# What should I use then?
+## Choosing the Right Tool
 
-Choosing which asset management tool depends on what your project needs, here's a little comparison between the three:
+Asset management is a core part of your pipeline. Here is how Tungsten stacks up against the competition:
 
 | Feature | Tungsten | Asphalt | Tarmac |
-|---|---|---|---|
-| Status | ✅ Active | ✅ Active | ❌ Broken |
-| API | Open Cloud | Open Cloud | Legacy Web API |
-| Packing | ✅ Supported | ❌ Not Supported | ⚠️ Supported [^1] |
-| Codegen | ✅ Supported | ✅ Supported (with TypeScript support) | ✅ Supported |
-| Asset Support | Images (more coming) | Images, Audios, Videos, Models, Animations | Images only |
+| :--- | :--- | :--- | :--- |
+| **Status** | ✅ Active | ✅ Active | ❌ Deprecated |
+| **API** | Open Cloud | Open Cloud | Legacy Web API |
+| **Spritesheet Packing** | ✅ Supported | ❌ No | ⚠️ Partial [^1] |
+| **Luau/TS Codegen** | ⚠️ Partial [^2] | ✅ Supported | ✅ Supported |
+| **Asset Support** | Images, Audio, Models, Animations | Images, Audio, Video, Models, Animations | Images Only |
 
-If you still don't know which to use, choose:
+### Recommendation
 
-- **Tungsten**, if your current priority is **image assets** and you need the **spritesheet packing** feature.
-- **Asphalt**, if you need to upload multiple asset types, the ability to use **TypeScript for codegen**, or just a **reliable** asset management tool.
-- **Please, do not use Tarmac.** It relies on the **Legacy Web API** and because of that it is **broken** and is currently **not even usable** as it breaks on one bug while syncing.
+- **Choose Tungsten** if you need an all-in-one tool for **spritesheet packing** and **SVG conversion**, but can sacrifice certain features such as **uploading videos** and **TypeScript codegen** (for now). It's the **best choice** if you're looking for a **modern, streamlined syncing experience**.
+- **Choose Asphalt** if your project specifically requires **Video asset uploads** or if you are using a **TypeScript** (`roblox-ts`) currently and need **immediate codegen support**.
+- **Avoid Tarmac.** It relies on **deprecated Web APIs** and **fails to sync**, making it **unreliable** for modern Roblox development.
 
-Hope that helped you make up your mind!
-
-[^1]: If your input images are not in the **RGBA** color format Tarmac will **not** accept your files and **panic**.
+[^1]: Tarmac requires images to be in strict **RGBA** color format; other color formats will cause the tool to panic and fail.
+[^2]: Tungsten currently only supports Luau codegen, TypeScript codegen is in the works.

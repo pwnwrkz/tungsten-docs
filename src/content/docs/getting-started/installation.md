@@ -37,11 +37,20 @@ Which one should I use? These tools are alternatives to one another. You only ne
 :::
 
 ## [Foreman](https://github.com/Roblox/foreman)
+### Disclaimer
+Tungsten versions starting from v1.0.0 currently cannot be installed with Foreman due to us switching to `dist` for easier file distribution, and as `dist` bundles the `LICENSE` and `README.md` files with the executable, Foreman doesn't know which file it should install.
+
+Until a solution is found, Tungsten will remain uninstallable on Foreman.
+
+
+For more technical details on this you can read [an issue](https://github.com/Roblox/foreman/issues/97) created by Asphalt's creator jackTabsCode about this.
+
+### Installation
 If you are using Foreman, you can add **Tungsten** to your `foreman.toml` file under the `[tools]` section:
 
 ```toml title="foreman.toml"
 [tools]
-tungsten = { github = "notmagniill/tungsten", version = "^0.1.0" }
+tungsten = { github = "notmagniill/tungsten", version = "0.1.3" }
 ```
 
 After updating your configuration, run:
@@ -72,5 +81,5 @@ tungsten --version
 
 Tungsten should print something like this:
 ```bash title="Terminal"
-tungsten v0.1.1
+tungsten v1.0.0
 ```
