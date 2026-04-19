@@ -14,7 +14,7 @@ Mise is a polyglot tool manager that can handle **Tungsten** directly from GitHu
 To install and activate **Tungsten** in your current directory, run:
 
 ```bash title="Terminal"
-mise use github:notmagniill/tungsten
+mise use github:pwnwrkz/tungsten
 ```
 
 ## [Rokit](https://github.com/rojo-rbx/rokit) and [Aftman](https://github.com/LPGhatguy/aftman)
@@ -24,12 +24,12 @@ They function similarly; simply run the command for the tool you have installed.
 
 ### For Rokit
 ```bash title="Terminal"
-rokit add notmagniill/tungsten
+rokit add pwnwrkz/tungsten
 ```
 
 ### For Aftman
 ```bash title="Terminal"
-aftman add notmagniill/tungsten
+aftman add pwnwrkz/tungsten
 ```
 
 :::tip
