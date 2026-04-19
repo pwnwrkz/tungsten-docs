@@ -1,0 +1,52 @@
+---
+title: Advanced Workflows
+description: Explore Tungsten's power-user features, including live watch mode, automatic high DPI scaling, and CI/CD integration.
+---
+
+import { Aside, Steps } from "@astrojs/starlight/components";
+
+Once you’ve mastered basic syncing and asset packing, you can start leveraging Tungsten’s power-user features to turn your asset management into a hands-off, automated pipeline.
+
+This guide covers how to keep your workspace live, how to handle high-resolution assets, and how to integrate Tungsten into your CI/CD process.
+
+## Watch Mode
+
+`tungsten watch` is the core of a modern developer's loop. Instead of manually running `sync` every time you make a small change, Tungsten keeps a persistent connection to your project directory.
+
+Any modification to your assets. Adding an icon, updating a texture, or tweaking a sprite, triggers an immediate, incremental sync. This keeps your local development environment perfectly in sync with the Roblox cloud.
+
+### Usage
+Start the watcher in your terminal:
+```bash title="Terminal"
+tungsten watch cloud
+```
+
+:::note
+This command will block your terminal until you stop it (usually by pressing Ctrl + C).
+:::
+
+## High DPI Detection
+
+Tungsten is built to handle high-resolution displays out of the box. You don't need to enable any specific settings; Tungsten automatically inspects your asset filenames for standard high-resolution suffixes (like @2x or @3x).
+
+When Tungsten detects these, it automatically generates a function for changing between DPI scales in your Luau code. This ensures your images remain crisp and properly scaled on modern displays without requiring any extra configuration from you.
+
+## CI/CD Integration
+
+For teams or larger projects, you shouldn't be syncing assets from your personal machine. Tungsten is designed to be CI-ready.
+
+By providing the `TUNGSTEN_GLOBAL_APIKEY` environment variable in your GitHub Actions or GitLab CI runners, you can automate your asset pipeline entirely.
+
+<Steps>
+
+1. Define `TUNGSTEN_GLOBAL_APIKEY` as a secret in your repository settings.
+2. Add a step to your workflow to run tungsten sync cloud.
+3. Use the `--dry-run` flag first to validate that your asset configuration is valid without consuming your upload quota.
+
+</Steps>
+
+:::tip
+Pro Workflow: Using `--dry-run` in your CI pipeline allows you to validate your packing logic and file structure on every push to your repository, ensuring no broken assets ever hit your production environment.
+:::
+
+Congratulations! You've finished the whole tutorial, we hope you have a great experience using Tungsten!

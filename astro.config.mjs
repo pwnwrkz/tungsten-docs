@@ -2,7 +2,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://pwnwrkz.github.io",
   base: "/tungsten-docs",
@@ -23,30 +22,26 @@ export default defineConfig({
           href: "https://github.com/pwnwrkz/tungsten",
         },
       ],
-      // sidebar config snippet
       sidebar: [
         {
-          label: "Foundations",
+          label: "Getting Started",
           items: [
             { label: "Introduction", slug: "getting-started/introduction" },
             { label: "Installation", slug: "getting-started/installation" },
-            { label: "Quick Start", slug: "getting-started/quick-start" },
           ],
         },
         {
-          label: "Concepts",
+          label: "Tutorials",
           items: [
-            { label: "Syncing Workflow", slug: "guides/usage" },
-            { label: "Asset Processing", slug: "guides/processing" }, // New logical split
+            { label: "Your First Sync", slug: "guides/first-sync" },
+            { label: "Mastering Asset Packing", slug: "guides/packing" },
+            { label: "Advanced Workflows", slug: "guides/advanced" },
           ],
         },
         {
           label: "Reference",
           items: [
-            {
-              label: "Configuration",
-              slug: "reference/configuration",
-            },
+            { label: "Configuration", slug: "reference/configuration" },
             { label: "Meta Files", slug: "reference/meta-files" },
             { label: "CLI Reference", slug: "reference/cli-reference" },
           ],
