@@ -2,22 +2,30 @@
 title: Tungsten
 description: Main page for the Tungsten documentation.
 template: splash
+banner:
+  content: |
+    Looking for the latest version?
+    The documentation has moved to <a href="https://pwnwrkz.github.io/tungsten">pwnwrkz.github.io/tungsten</a>
 hero:
   title: tungsten
   tagline: Another command line tool to manage Roblox assets similar to Tarmac and Asphalt.
   image:
     file: ../../assets/tungsten_logo.png
   actions:
-    - text: Get Started
-      link: /tungsten-docs/getting-started/introduction
-      icon: right-arrow
+    - text: Go to New Site
+      link: https://pwnwrkz.github.io/tungsten
+      icon: external
     - text: View on GitHub
       link: https://github.com/pwnwrkz/tungsten
       icon: external
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+:::caution[Documentation Moved]
+This version of the documentation is no longer being updated. Please visit our new home at **[pwnwrkz.github.io/tungsten](https://pwnwrkz.github.io/tungsten)** for the most up-to-date guides on v2.1.0 and later versions for their features.
+:::
 
 <CardGrid stagger>
     <Card title="Multi-Asset Syncing" icon="rocket">
@@ -27,13 +35,13 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
     <Card title="Smarter Than Syncing" icon="random">
         Go beyond Asphalt. Tungsten doesn't just sync assets, it automatically packs images into optimized spritesheets on the go.
     </Card>
-    
+
     <Card title="Built for Speed" icon="seti:vite">
         Blazing fast execution. Tungsten is built in Rust for high-performance asset pipelines that won't slow down your workflow.
     </Card>
-    
+
     <Card title="Privacy First" icon="seti:lock">
         Local processing by default. Your assets stay on your machine, no external data sharing or third-party cloud processing required.
     </Card>
-    
+
 </CardGrid>
